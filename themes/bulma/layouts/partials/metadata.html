@@ -1,0 +1,13 @@
+<p class="title is-4"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+<p class="subtitle is-6">
+  <i class="fa fa-at"></i>&nbsp;
+  {{ .Params.author }}<br/>
+  <i class="fa fa-hashtag"></i>&nbsp;
+  {{- range .Params.tags }}
+  <a href="{{ print (absURL "tags/") (urlize .) }}"><span class="tag is-link">{{ . }}</span></a>
+  {{- end }}
+</p>
+<p>
+  <i class="fa fa-calendar"></i>&nbsp;
+  <time class="subtitle is-6" datetime="2016-1-1">{{ .Date.Format "January 2, 2006" }}</time>
+</p>

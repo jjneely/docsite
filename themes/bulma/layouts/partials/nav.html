@@ -1,0 +1,23 @@
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item is-size-5" href="{{ .Site.BaseURL }}">
+      <span class="icon"><i class="fas fa-pencil-alt"></i></span>&nbsp;{{ .Site.Title }}
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbar" class="navbar-menu">
+    <div class="navbar-start">
+      {{- range .Site.Menus.main }}
+      <a class="navbar-item" href="{{ .URL }}">
+        {{ print .Name | safeHTML }}
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</nav>

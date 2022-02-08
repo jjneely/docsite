@@ -1,0 +1,23 @@
+baseURL = "https://books.linuxczar.net/"
+languageCode = "en-us"
+title = "Documentation of a Madman"
+theme = "bulma"
+
+# Only 'tags' for a taxonomy for our doc site.  Create sections/directories
+# under content/ to represent a section/category in the doc stack.
+[taxonomies]
+  tag = 'tags'
+
+[params]
+  # Site subtitle
+  subtitle = "This is how you automate documentation"
+
+[menu]
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 4

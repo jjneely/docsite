@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="section">
+  <div class="contianer">
+    {{- range .Data.Terms.Alphabetical }}
+    <div class="box">
+      <div class="columns">
+        <div class="column is-one-thirds">
+          <p class="title is-4"><a href="/{{ $.Data.Plural }}/{{ .Name | urlize }}">{{ .Name }}</a></p>
+        </div>
+        <div class="column is-two-thirds">
+          <p>
+            Articles: {{ .WeightedPages.Count }}<br/>
+            Last Update: <time>{{ (index .WeightedPages.Pages.ByPublishDate.Reverse 0).Date.Format "January 2, 2006" }}</time>
+          </p>
+        </div>
+      </div>
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{ end }}
