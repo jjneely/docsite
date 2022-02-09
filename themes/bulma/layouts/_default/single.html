@@ -19,8 +19,9 @@
 <section class="section">
   <div class="container">
     <div class="columns is-multiline">
-      {{- partial "tree.html" .Parent }}
-
+      <div class="column is-one-quarter">
+        {{- partial "tree.html" (dict "context" .Parent "url" .Permalink) }}
+      </div>
       <div class="column is-three-quarters">
         {{ .Page.Content }}
       </div> <!-- column -->

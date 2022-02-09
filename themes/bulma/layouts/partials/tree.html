@@ -1,28 +1,25 @@
-{{- define "recurse" }}
-  {{- $child_pages := union .Sections .Pages }}
-  {{- if gt (len $child_pages) 0 }}
-    <ul class="menu-list">
-    {{- range $child_pages }}
-      <li><a href="{{.Permalink}}">{{.Title}}</a></li>
-    {{- end }}
-    </ul>
-  {{- end }}
-{{- end }}
-
-<div class="column is-one-quarter">
-  <aside class="pb-4 menu">
-    <p class="menu-label">Section</p>
-    <ul class="menu-list">
-      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    </ul>
-    <p class="menu-label">Contents</p>
-    <ul class="menu-list">
-      {{- range (union .Sections .Pages) }}
-      <li>
-        <a href="{{.Permalink}}">{{.Title}}</a>
-        {{- template "recurse" . }}
-      </li>
+{{- $url := .url }}
+{{- with .context }}
+<aside class="pb-4 menu">
+  <p class="menu-label">Section</p>
+  <ul class="menu-list">
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  </ul>
+  <p class="menu-label">Contents</p>
+  <ul class="menu-list">
+    {{- range (union .Sections .Pages) }}
+    <li>
+      <a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{.Permalink}}">{{.Title}}</a>
+      {{- $child_pages := union .Sections .Pages }}
+      {{- if gt (len $child_pages) 0 }}
+        <ul class="menu-list">
+        {{- range $child_pages }}
+          <li><a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{.Permalink}}">{{.Title}}</a></li>
+        {{- end }}
+        </ul>
       {{- end }}
-    </ul>
-  </aside>
-</div>
+    </li>
+    {{- end }}
+  </ul>
+</aside>
+{{- end }}
