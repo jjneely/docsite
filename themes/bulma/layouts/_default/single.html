@@ -23,7 +23,9 @@
         {{- partial "tree.html" (dict "context" .Parent "url" .Permalink) }}
       </div>
       <div class="column is-three-quarters">
-        {{ .Page.Content }}
+        <article class="content has-text-black">
+          {{ .Page.Content }}
+        </article>
       </div> <!-- column -->
     </div> <!-- columns -->
   </div> <!-- container -->

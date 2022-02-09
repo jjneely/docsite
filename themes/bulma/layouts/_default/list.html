@@ -1,4 +1,37 @@
 {{ define "main" }}
+<section class="hero">
+  <div class="hero-head"></div>
+  <div class="hero-body">
+    <div class="has-text-centered">
+      <p class="title">
+        {{ .Title }}
+      </p>
+      {{- if .Page.Params.subtitle }}
+      <p class="subtitle">
+        {{ .Page.Params.subtitle }}
+      </p>
+      {{- end }}
+    </div>
+  </div>
+  <div class="hero-foot"></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-one-quarter">
+        {{- partial "tree.html" (dict "context" . "url" .Permalink) }}
+      </div>
+      <div class="column is-three-quarters">
+        <article class="content has-text-black">
+          {{ .Page.Content }}
+        </article>
+      </div> <!-- column -->
+    </div> <!-- columns -->
+  </div> <!-- container -->
+</section>
+
+<!--
 <section class="section">
   <div class="contianer">
     {{- range .Pages.ByPublishDate.Reverse }}
@@ -15,4 +48,5 @@
     {{- end }}
   </div>
 </section>
+-->
 {{ end }}

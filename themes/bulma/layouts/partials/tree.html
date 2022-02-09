@@ -1,11 +1,17 @@
 {{- $url := .url }}
 {{- with .context }}
 <aside class="pb-4 menu">
+  {{- if not .Page.IsHome }}
+  <p class="menu-label">Home</p>
+  <ul class="menu-list">
+    <li><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></li>
+  </ul>
+  {{- end }}
   <p class="menu-label">Section</p>
   <ul class="menu-list">
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <li><a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a></li>
   </ul>
-  <p class="menu-label">Contents</p>
+  <p class="menu-label">Pages</p>
   <ul class="menu-list">
     {{- range (union .Sections .Pages) }}
     <li>
