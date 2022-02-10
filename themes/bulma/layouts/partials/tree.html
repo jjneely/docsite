@@ -4,23 +4,23 @@
   {{- if not .Page.IsHome }}
   <p class="menu-label">Home</p>
   <ul class="menu-list">
-    <li><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></li>
+    <li><a href="{{ .Site.BaseURL }}">{{ .Site.Title | title }}</a></li>
   </ul>
   {{- end }}
   <p class="menu-label">Section</p>
   <ul class="menu-list">
-    <li><a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a></li>
+    <li><a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{ .Permalink }}">{{ .Title | title }}</a></li>
   </ul>
   <p class="menu-label">Pages</p>
   <ul class="menu-list">
     {{- range (union .Sections .Pages) }}
     <li>
-      <a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{.Permalink}}">{{.Title}}</a>
+      <a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{.Permalink}}">{{ .Title | title }}</a>
       {{- $child_pages := union .Sections .Pages }}
       {{- if gt (len $child_pages) 0 }}
         <ul class="menu-list">
         {{- range $child_pages }}
-          <li><a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{.Permalink}}">{{.Title}}</a></li>
+          <li><a class="{{ if eq $url .Permalink }}is-active{{ end }}" href="{{.Permalink}}">{{ .Title | title }}</a></li>
         {{- end }}
         </ul>
       {{- end }}

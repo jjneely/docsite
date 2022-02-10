@@ -7,7 +7,7 @@
         {{ .Title | title }}
       </p>
       <p class="subtitle">
-        Index of Terms
+        List of Pages
       </p>
     </div>
   </div>
@@ -24,15 +24,15 @@
         <table class="table is-striped is-fullwidth">
           <thead>
             <tr>
-              <th>{{ .Data.Singular | title }}</th><th>Matching Pages</th><th>Last Updated</th>
+              <th>Page Title</th><th>Last Modified</th><th>Summary</th>
             </tr>
           </thead>
           <tbody>
-            {{- range .Data.Terms.Alphabetical }}
+            {{- range .Pages }}
             <tr>
-              <td><a href="/{{ $.Data.Plural }}/{{ .Name | urlize }}">{{ .Name }}</a></td>
-              <td>{{ .WeightedPages.Count }}</td>
-              <td><time>{{ (index .WeightedPages.Pages.ByPublishDate.Reverse 0).Date.Format "January 2, 2006" }}</time></td>
+              <td><a href="{{ .Permalink }}">{{ .Title | title }}</a></td>
+              <td><time>{{ .Date.Format "January 2, 2006" }}</time></td>
+              <td>{{ .Summary }}</td>
             </tr>
             {{- end }}
           </tbody>
