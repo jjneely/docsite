@@ -1,4 +1,4 @@
-baseURL = "https://books.linuxczar.net/"
+baseURL = "https://jjneely.github.io/docsite/"
 languageCode = "en-us"
 title = "Documentation of a Madman"
 theme = "bulma"
