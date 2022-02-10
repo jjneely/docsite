@@ -9,8 +9,6 @@ theme = "bulma"
   tag = 'tags'
 
 [params]
-  # Site subtitle
-  subtitle = "This is how you automate documentation"
 
 [menu]
   [[menu.main]]

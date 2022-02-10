@@ -4,11 +4,11 @@
   <div class="hero-body">
     <div class="has-text-centered">
       <p class="title">
-        {{ .Site.Title }}
+        {{ .Title | title }}
       </p>
-      {{- if .Site.Params.subtitle }}
+      {{- if .Params.subtitle }}
       <p class="subtitle">
-        {{ .Site.Params.subtitle }}
+        {{ .Params.subtitle }}
       </p>
       {{- end }}
     </div>
