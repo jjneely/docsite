@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+@font-face {
+    font-family: JuliaMono-Regular;
+    src: url("https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.037/JuliaMono-Regular.woff2");
+}
+
+body {
+  font-family: "Merriweather", serif;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+pre, samp {
+  /*border: 1px solid #ddd;*/
+  border-radius: 4px;
+  padding: 1rem;
+  color: #000000;
+  background-color: hsl(0, 0%, 96%) !important;
+}
+code,
+kbd,
+pre,
+samp {
+  font-size: 16px;
+  font-family: 'JuliaMono-Regular', monospace;
+}
